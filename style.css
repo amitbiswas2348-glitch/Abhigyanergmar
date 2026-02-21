@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.05) 0px,
+        rgba(255,255,255,0.05) 20px,
+        transparent 20px,
+        transparent 40px
+    );
+    animation: moveBg 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveBg {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+/* Glitch Title */
+.glitch-title {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 
+        0.05em 0 0 rgba(255,0,0,0.7),
+        -0.05em -0.025em 0 rgba(0,255,255,0.7),
+        0.025em 0.05em 0 rgba(0,255,0,0.7);
+    animation: glitch 725ms infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 
+            0.05em 0 0 rgba(255,0,0,0.7),
+            -0.05em -0.025em 0 rgba(0,255,255,0.7),
+            0.025em 0.05em 0 rgba(0,255,0,0.7);
+    }
+    14% {
+        text-shadow: 
+            0.05em 0 0 rgba(255,0,0,0.7),
+            -0.05em -0.025em 0 rgba(0,255,255,0.7),
+            0.025em 0.05em 0 rgba(0,255,0,0.7);
+    }
+    15% {
+        text-shadow: 
+            -0.05em -0.025em 0 rgba(255,0,0,0.7),
+            0.025em 0.025em 0 rgba(0,255,255,0.7),
+            -0.05em -0.05em 0 rgba(0,255,0,0.7);
+    }
+    49% {
+        text-shadow: 
+            -0.05em -0.025em 0 rgba(255,0,0,0.7),
+            0.025em 0.025em 0 rgba(0,255,255,0.7),
+            -0.05em -0.05em 0 rgba(0,255,0,0.7);
+    }
+    50% {
+        text-shadow: 
+            0.025em 0.05em 0 rgba(255,0,0,0.7),
+            0.05em 0 0 rgba(0,255,255,0.7),
+            0 -0.05em 0 rgba(0,255,0,0.7);
+    }
+    99% {
+        text-shadow: 
+            0.025em 0.05em 0 rgba(255,0,0,0.7),
+            0.05em 0 0 rgba(0,255,255,0.7),
+            0 -0.05em 0 rgba(0,255,0,0.7);
+    }
+    100% {
+        text-shadow: 
+            0.05em 0 0 rgba(255,0,0,0.7),
+            -0.05em -0.025em 0 rgba(0,255,255,0.7),
+            0.025em 0.05em 0 rgba(0,255,0,0.7);
+    }
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* START Button */
+.start-btn {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border: none;
+    padding: 20px 60px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+}
+
+.start-btn i {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+/* Question Container */
+.question-container {
+    margin-top: 30px;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.question-box {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.question-text {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.answer-btn {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.answer-btn.yes {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 176, 155, 0.4);
+}
+
+.answer-btn.no {
+    background: linear-gradient(135deg, #ff6b6b, #ee5253);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.answer-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+.answer-btn:active {
+    transform: translateY(0);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    animation: modalPop 0.4s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: scale(1.2);
+}
+
+.modal-body {
+    padding: 30px 20px;
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.modal-btn {
+    background: white;
+    color: #764ba2;
+    border: none;
+    padding: 12px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* BDSK Special Modal */
+.bdsk-modal {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border: 3px solid #ffd700;
+}
+
+.bdsk-text {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffd700;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.bdsk-sub {
+    color: white;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.bdsk-btn {
+    background: #ffd700;
+    color: #ff416c;
+    font-size: 1.5rem;
+    padding: 15px 60px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .glitch-title {
+        font-size: 2.5rem;
+    }
+    
+    .start-btn {
+        padding: 15px 40px;
+        font-size: 1.5rem;
+    }
+    
+    .question-text {
+        font-size: 1.5rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .answer-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .bdsk-text {
+        font-size: 2rem;
+    }
+}

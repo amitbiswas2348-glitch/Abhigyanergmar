@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhigyan er G ☠️</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <div class="content">
+            <h1 class="glitch-title">ABHIGYAN ER G</h1>
+            <p class="subtitle">The Ultimate Decision Game</p>
+            
+            <!-- START Button -->
+            <button id="startBtn" class="start-btn">
+                <span>START</span>
+                <i class="fas fa-play"></i>
+            </button>
+
+            <!-- Question Container (hidden initially) -->
+            <div id="questionContainer" class="question-container hidden">
+                <div class="question-box">
+                    <p id="questionText" class="question-text"></p>
+                    <div class="btn-group" id="answerBtns">
+                        <!-- Buttons will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal Popup -->
+    <div id="customModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">⚠️ MESSAGE</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" onclick="closeModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BDSK Special Modal (only YES button) -->
+    <div id="bdskModal" class="modal hidden">
+        <div class="modal-content bdsk-modal">
+            <div class="modal-header">
+                <h3>👿 BDSK DETECTED</h3>
+            </div>
+            <div class="modal-body">
+                <p class="bdsk-text">BDSK YES DABA</p>
+                <p class="bdsk-sub">(you have no choice)</p>
+            </div>
+            <div class="modal-footer">
+                <button id="bdskYesBtn" class="modal-btn bdsk-btn">YES</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
